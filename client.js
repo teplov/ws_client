@@ -33,14 +33,14 @@ function init() {
     sendEl.addEventListener("click", (e) => {
         let val = inputEl.value;
         sendMessage(val);
-        inputEl.value = null;
+        inputEl.value = '';
     });
 
     inputEl.addEventListener("keypress", (e) => {
         if (e.code == 'Enter') {
             let val = e.target.value;
             sendMessage(val);
-            e.target.value = null;
+            e.target.value = '';
         }
     });
 
