@@ -2,6 +2,7 @@ BODY {
     font-family: 'Helvetica Neue', 'Verdana', sans-serif;
 }
 
+
 #chat {
     position: absolute;
     bottom: 10px;
@@ -59,14 +60,18 @@ BODY {
     left: -100px;
 }
 
-#sber_id_form {
-    width: 250px;
-    background-color: #eee;
-    padding: 40px;
-}
 
-#sber_id_form INPUT {
-    margin: 10px 0;
-    height: 30px;
-    width: 200px;
+@media (pointer:none), (pointer:coarse) {
+    #chat {
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        width: auto;
+        height: auto;
+    }
+
+    #input {
+        width: 100%;
+    }
 }
