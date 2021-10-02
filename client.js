@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", init);
 var id = null;
 
 function init() {
-    const myWs = new WebSocket('ws://id-wschat.herokuapp.com');
+    const myWs = new WebSocket('wss://id-wschat.herokuapp.com');
     console.log("Loaded")
 
     document.getElementById('input').addEventListener("keypress", (e) => {
