@@ -21,5 +21,9 @@ function init() {
         }
     });
 
+    myWs.onmessage = function (message) {
+        console.log('Message: %s', message.data);
+      };
+
     window.addEventListener("message", (e) => e.data ? id = e.data : id = null);
 }
