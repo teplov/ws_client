@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", init);
 
-
+const myWs = new WebSocket('wss://id-wschat.herokuapp.com');
 var id = null;
 
 const addMessage = (message, type='out') => {
@@ -15,21 +15,32 @@ const addMessage = (message, type='out') => {
     mainEl.scrollTop = 10000;
 }
 
+const sendMessage = (message) => {
+    addMessage(message);
+    const data = {
+        client_id: id,
+        client_message: message
+    };
+    myWs.send(JSON.stringify({action: 'client_send_message', data}));    
+}
+
 function init() {
-    const myWs = new WebSocket('wss://id-wschat.herokuapp.com');
+    const inputEl = document.getElementById("input");
+    const sendEl = document.getElementById("send");
     console.log("Loaded")
 
-    document.getElementById('input').addEventListener("keypress", (e) => {
+
+    sendEl.addEventListener("click", (e) => {
+        let val = inputEl.value;
+        sendMessage(val);
+        inputEl.value = null;
+    });
+
+    inputEl.addEventListener("keypress", (e) => {
         if (e.code == 'Enter') {
             let val = e.target.value;
+            sendMessage(val);
             e.target.value = null;
-            console.log(val);
-            addMessage(val);
-            const data = {
-                client_id: id,
-                client_message: val
-            };
-            myWs.send(JSON.stringify({action: 'client_send_message', data}));    
         }
     });
 
