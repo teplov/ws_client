@@ -54,9 +54,9 @@ BODY {
 #iframe {
     width: 1px;
     height: 1px;
-    position: absolute;
-    right: -100px;
-    bottom: -100px;
+    position: fixed;
+    top: -100px;
+    left: -100px;
 }
 
 #sber_id_form {
