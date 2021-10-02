@@ -1,5 +1,5 @@
 BODY {
-    font-family: sans-serif;
+    font-family: 'Helvetica Neue', 'Verdana', sans-serif;
 }
 
 #chat {
@@ -10,7 +10,33 @@ BODY {
     height: 500px;
     border-radius: 8px;
     box-shadow: 0px 10px 20px rgba(0,0,0,0.5);
+    box-sizing: border-box;
 }
+
+#chat #main {
+    height: 450px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.message {
+    background-color: #d7ecf8;
+    border-radius: 4px;
+    margin:10px;
+    margin-bottom: 0;
+    padding: 10px;
+    display: inline-block;
+    max-width: 280px;
+    font-size: 14px;
+}
+
+.out {
+    background-color: #ccc;
+    float: right;
+}
+
 
 #input {
     width: 350px;
